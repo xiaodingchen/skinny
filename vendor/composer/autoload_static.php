@@ -6,20 +6,199 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitefb41965956b7325c7ec79bc651b2cd7
 {
+    public static $files = array (
+        'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        'e40631d46120a9c38ea139981f8dab26' => __DIR__ . '/..' . '/ircmaxell/password-compat/lib/password.php',
+    );
+
+    public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Component\\Translation\\' => 30,
+            'Symfony\\Component\\EventDispatcher\\' => 34,
+        ),
+        'R' => 
+        array (
+            'React\\Promise\\' => 14,
+        ),
+        'P' => 
+        array (
+            'Psr\\Log\\' => 8,
+            'Predis\\' => 7,
+        ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Stream\\' => 18,
+            'GuzzleHttp\\Ring\\' => 16,
+            'GuzzleHttp\\' => 11,
+        ),
+        'D' => 
+        array (
+            'Doctrine\\Common\\Cache\\' => 22,
+            'Doctrine\\Common\\' => 16,
+        ),
+        'C' => 
+        array (
+            'Carbon\\' => 7,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Component\\Translation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/translation',
+        ),
+        'Symfony\\Component\\EventDispatcher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
+        ),
+        'React\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/promise/src',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Predis\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/predis/predis/src',
+        ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'GuzzleHttp\\Stream\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/streams/src',
+        ),
+        'GuzzleHttp\\Ring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/ringphp/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'Doctrine\\Common\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
+        ),
+        'Doctrine\\Common\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
+        ),
+        'Carbon\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
+        ),
+    );
+
     public static $prefixesPsr0 = array (
+        'W' => 
+        array (
+            'Whoops' => 
+            array (
+                0 => __DIR__ . '/..' . '/filp/whoops/src',
+            ),
+        ),
         'S' => 
         array (
             'Symfony\\Component\\Routing\\' => 
             array (
                 0 => __DIR__ . '/..' . '/symfony/routing',
             ),
+            'Symfony\\Component\\HttpKernel\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/symfony/http-kernel',
+            ),
+            'Symfony\\Component\\HttpFoundation\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/symfony/http-foundation',
+            ),
+            'Symfony\\Component\\Finder\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/symfony/finder',
+            ),
+            'Symfony\\Component\\Debug\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/symfony/debug',
+            ),
+            'Symfony\\Component\\Console\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/symfony/console',
+            ),
         ),
+        'P' => 
+        array (
+            'Patchwork' => 
+            array (
+                0 => __DIR__ . '/..' . '/patchwork/utf8/class',
+            ),
+        ),
+        'N' => 
+        array (
+            'Normalizer' => 
+            array (
+                0 => __DIR__ . '/..' . '/patchwork/utf8/class',
+            ),
+        ),
+        'I' => 
+        array (
+            'Illuminate\\Container' => 
+            array (
+                0 => __DIR__ . '/..' . '/illuminate/container',
+            ),
+        ),
+        'D' => 
+        array (
+            'Doctrine\\DBAL\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/dbal/lib',
+            ),
+            'Doctrine\\Common\\Lexer\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
+            ),
+            'Doctrine\\Common\\Inflector\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
+            ),
+            'Doctrine\\Common\\Collections\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/collections/lib',
+            ),
+            'Doctrine\\Common\\Annotations\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/annotations/lib',
+            ),
+        ),
+    );
+
+    public static $classMap = array (
+        'SessionHandlerInterface' => __DIR__ . '/..' . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
+        'Whoops\\Module' => __DIR__ . '/..' . '/filp/whoops/src/deprecated/Zend/Module.php',
+        'Whoops\\Provider\\Zend\\ExceptionStrategy' => __DIR__ . '/..' . '/filp/whoops/src/deprecated/Zend/ExceptionStrategy.php',
+        'Whoops\\Provider\\Zend\\RouteNotFoundStrategy' => __DIR__ . '/..' . '/filp/whoops/src/deprecated/Zend/RouteNotFoundStrategy.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInitefb41965956b7325c7ec79bc651b2cd7::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitefb41965956b7325c7ec79bc651b2cd7::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInitefb41965956b7325c7ec79bc651b2cd7::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitefb41965956b7325c7ec79bc651b2cd7::$classMap;
 
         }, null, ClassLoader::class);
     }
