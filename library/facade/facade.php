@@ -1,12 +1,12 @@
 <?php
-abstract class lib_facade {
+abstract class lib_facade_facade {
     /**
      * Alias to getFacadeRoot
      *
      * @return mixed
      */
     public static function instance() {
-        return static::getFacadeRoot ();
+        return static::getFacadeRoot();
     }
     
     /**
@@ -15,10 +15,10 @@ abstract class lib_facade {
      * @return mixed
      */
     public static function getFacadeRoot() {
-        if (is_object ( $object = static::getFacadeAccessor () )) {
+        if (is_object($object = static::getFacadeAccessor())) {
             return $object;
         }
-        throw new \RuntimeException ( sprintf ( 'Facade:%s need getFacadeAccessor method return object', get_class () ) );
+        throw new \RuntimeException(sprintf('Facade:%s need getFacadeAccessor method return object', get_class()));
     }
     
     /**
@@ -29,7 +29,7 @@ abstract class lib_facade {
      * @throws \RuntimeException
      */
     protected static function getFacadeAccessor() {
-        throw new \RuntimeException ( "Facade does not implement getFacadeAccessor method." );
+        throw new \RuntimeException("Facade does not implement getFacadeAccessor method.");
     }
     
     /**
@@ -40,29 +40,29 @@ abstract class lib_facade {
      * @return mixed
      */
     public static function __callStatic($method, $args) {
-        $instance = static::getFacadeRoot ();
+        $instance = static::getFacadeRoot();
         
-        switch (count ( $args )) {
+        switch (count($args)) {
             case 0 :
-                return $instance->$method ();
+                return $instance->$method();
             
             case 1 :
-                return $instance->$method ( $args [0] );
+                return $instance->$method($args [0]);
             
             case 2 :
-                return $instance->$method ( $args [0], $args [1] );
+                return $instance->$method($args [0], $args [1]);
             
             case 3 :
-                return $instance->$method ( $args [0], $args [1], $args [2] );
+                return $instance->$method($args [0], $args [1], $args [2]);
             
             case 4 :
-                return $instance->$method ( $args [0], $args [1], $args [2], $args [3] );
+                return $instance->$method($args [0], $args [1], $args [2], $args [3]);
             
             default :
-                return call_user_func_array ( array (
+                return call_user_func_array(array (
                         $instance,
                         $method 
-                ), $args );
+                ), $args);
         }
     }
 }
