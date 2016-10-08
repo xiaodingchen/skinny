@@ -17,7 +17,6 @@ class ClassLoader {
     
     /**
      * app支持的类类型.
-     * 默认的service不算在之内
      *
      * @var array
      */
@@ -110,6 +109,10 @@ class ClassLoader {
     {
         $typePath = LIB_DIR;
         $tmpArr = explode('_', $typePath);
+        if($tmpArr[0] != 'lib')
+        {
+            throw new RuntimeException ( 'Don\'t find file:' . $className );
+        }
         unset($tmpArr[0]);
         $tmpStr = implode('/', $tmpArr) . '.php';
         $relativePath = $typePath . '/' . $tmpStr;
@@ -172,7 +175,7 @@ class ClassLoader {
                     }
             }
         } else {
-            static::load($className);
+            static::libLoad($className);
         }
     } // End Function
 }
