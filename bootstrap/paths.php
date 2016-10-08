@@ -6,10 +6,7 @@ define ( 'DATA_DIR', ROOT_DIR . '/data' );
 define ( 'CACHE_DIR', DATA_DIR . '/cache' );
 
 define ( 'CACHE_ROUTE_DIR', ROOT_DIR . '/data' );
-// define('THEME_DIR', ROOT_DIR.'/themes');
 define ( 'PUBLIC_DIR', ROOT_DIR . '/public' ); // 同一主机共享文件
-define ( 'THEME_DIR', PUBLIC_DIR . '/themes' );
-define ( 'WAP_THEME_DIR', ROOT_DIR . '/wapthemes' );
 
 define ( 'MEDIA_DIR', PUBLIC_DIR . '/images' );
 define ( 'SCRIPT_DIR', ROOT_DIR . '/script' );

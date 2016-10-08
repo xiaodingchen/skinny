@@ -1,10 +1,5 @@
 <?php
-/**
- * ShopEx licence
- *
- * @copyright  Copyright (c) 2005-2010 ShopEx Technologies Inc. (http://www.shopex.cn)
- * @license  http://ecos.shopex.cn/ ShopEx License
- */
+
 class ClassLoader {
     /**
      * Indicates if a ClassLoader has been registered.
@@ -22,7 +17,7 @@ class ClassLoader {
     
     /**
      * app支持的类类型.
-     * 默认的lib不算在之内
+     * 默认的service不算在之内
      *
      * @var array
      */
@@ -30,6 +25,7 @@ class ClassLoader {
             'ctl',
             'mdl',
             'api',
+            'service',
             'middleware' 
     ];
     
