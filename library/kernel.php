@@ -4,6 +4,21 @@ class kernel {
 
     private static $__singleton_instance = [];
 
+    private static $__exception_instance = null;
+
+    /**
+     * 错误处理
+     */
+    public static function startExceptionHandling()
+    {
+        if (! isset(self::$__exception_instance))
+        {
+            self::$__exception_instance = kernel::single('lib_exception_handleExceptions');
+        }
+        
+        self::$__exception_instance->bootstrap();
+    }
+
     /**
      * 获取一个对象的实例
      *
