@@ -37,6 +37,7 @@ class lib_exception_handleExceptions {
     
     public function handleException($e)
     {
+        logger::error($e);
         if(kernel::runningInConsole())
         {
             return $this->renderForConsole($e);
