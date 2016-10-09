@@ -12,4 +12,4 @@ date_default_timezone_set('PRC');
 require __DIR__ . '/paths.php';
 require __DIR__ . '/autoload.php';
 require LIB_DIR . '/kernel.php';
-
+kernel::startExceptionHandling();
