@@ -1,15 +1,18 @@
 <?php
 /**
  |--------------------------------------------------------------------------
- | 定义paths
+ | 框架初始文件
  |--------------------------------------------------------------------------
  |
- | 常用的目录定义, 都在此处定义
+ | 定义目录、自动加载、全局类
  |
  */
-error_reporting(E_ERROR | E_USER_ERROR | E_PARSE | E_COMPILE_ERROR);
-date_default_timezone_set('PRC');
 require __DIR__ . '/paths.php';
 require __DIR__ . '/autoload.php';
 require LIB_DIR . '/kernel.php';
+
+error_reporting(E_ERROR | E_USER_ERROR | E_PARSE | E_COMPILE_ERROR);
 kernel::startExceptionHandling();
+$config = config::get('app');
+$timezone = $config['timezone']?:8;
+date_default_timezone_set('Etc/GMT'.($timezone>=0?($timezone*-1):'+'.($timezone*-1)));
