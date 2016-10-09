@@ -2,10 +2,12 @@
 
 /**
  * handleExceptions.php
+ * 全局错误处理，前期只做简单的错误处理，后期需细分
  * 
  * late-xiao@foxmail.com
  * */
 use Symfony\Component\Console\Output\ConsoleOutput;
+use Symfony\Component\Console\Application as ConsoleApplication;
 use Symfony\Component\Debug\Exception\FatalErrorException;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 class lib_exception_handleExceptions {
@@ -35,7 +37,13 @@ class lib_exception_handleExceptions {
     
     public function handleException($e)
     {
-        $this->renderExceptionWithWhoops($e);
+        if(kernel::runningInConsole())
+        {
+            return $this->renderForConsole($e);
+        }
+        // 需要区分http请求模式，后期扩展
+        return $this->renderExceptionWithWhoops($e);
+        
     }
     
     public function handleShutdown()
@@ -87,5 +95,14 @@ class lib_exception_handleExceptions {
             $e->getStatusCode(),
             $e->getHeaders()
             );
+    }
+    
+    /**
+     * 命令模式下错误处理
+     * */
+    protected function renderForConsole(Exception $e)
+    {
+        $output = new ConsoleOutput();
+        (new ConsoleApplication)->renderException($e, $output);
     }
 }

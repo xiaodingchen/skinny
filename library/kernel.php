@@ -5,6 +5,7 @@ class kernel {
     private static $__singleton_instance = [];
 
     private static $__exception_instance = null;
+    private static $__running_in_console = null;
 
     /**
      * 错误处理
@@ -17,6 +18,18 @@ class kernel {
         }
         
         self::$__exception_instance->bootstrap();
+    }
+    
+    /**
+     * 判断PHP运行模式
+     * */
+    static public function runningInConsole()
+    {
+        if (static::$__running_in_console == null) {
+            return php_sapi_name() == 'cli';
+        }
+    
+        return static::$__running_in_console;
     }
 
     /**
