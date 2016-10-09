@@ -1,5 +1,5 @@
 <?php
-abstract class lib_facade_facade {
+abstract class lib_facades_facade {
     /**
      * Alias to getFacadeRoot
      *

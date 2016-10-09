@@ -33,6 +33,22 @@ class kernel {
     }
 
     /**
+     * 设置命令模式
+     * */
+    static public function simulateRunningInConsole()
+    {
+        static::$__running_in_console = true;
+    }
+    
+    /**
+     * 当前运行环境
+     * */
+    static public function environment()
+    {
+        return 'production';
+    }
+    
+    /**
      * 获取一个对象的实例
      *
      * @param string $className 类名

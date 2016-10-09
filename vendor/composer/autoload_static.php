@@ -4,12 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitefb41965956b7325c7ec79bc651b2cd7
+class ComposerStaticInite5760337da8fd5997813f00669a5b6cb
 {
     public static $files = array (
         'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'e40631d46120a9c38ea139981f8dab26' => __DIR__ . '/..' . '/ircmaxell/password-compat/lib/password.php',
+        '99f48fd1ce0408900475e782dfb7aa0e' => __DIR__ . '/../..' . '/library/support/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -37,6 +38,10 @@ class ComposerStaticInitefb41965956b7325c7ec79bc651b2cd7
             'GuzzleHttp\\Stream\\' => 18,
             'GuzzleHttp\\Ring\\' => 16,
             'GuzzleHttp\\' => 11,
+        ),
+        'E' => 
+        array (
+            'Endroid\\QrCode\\' => 15,
         ),
         'D' => 
         array (
@@ -89,6 +94,10 @@ class ComposerStaticInitefb41965956b7325c7ec79bc651b2cd7
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'Endroid\\QrCode\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/endroid/qrcode/src',
         ),
         'Doctrine\\Common\\Cache\\' => 
         array (
@@ -195,10 +204,10 @@ class ComposerStaticInitefb41965956b7325c7ec79bc651b2cd7
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitefb41965956b7325c7ec79bc651b2cd7::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitefb41965956b7325c7ec79bc651b2cd7::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitefb41965956b7325c7ec79bc651b2cd7::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitefb41965956b7325c7ec79bc651b2cd7::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInite5760337da8fd5997813f00669a5b6cb::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInite5760337da8fd5997813f00669a5b6cb::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInite5760337da8fd5997813f00669a5b6cb::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInite5760337da8fd5997813f00669a5b6cb::$classMap;
 
         }, null, ClassLoader::class);
     }
