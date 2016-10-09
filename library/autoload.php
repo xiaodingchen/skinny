@@ -108,7 +108,7 @@ class ClassLoader {
     public static function libLoad($className)
     {
         $typePath = LIB_DIR;
-        $tmpArr = explode('_', $typePath);
+        $tmpArr = explode('_', $className);
         if($tmpArr[0] != 'lib')
         {
             throw new RuntimeException ( 'Don\'t find file:' . $className );
