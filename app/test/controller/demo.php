@@ -2,7 +2,7 @@
 /**
  * demo.php
  * 
- * late-xiao@foxmail.com
+ * 
  * */
 class test_ctl_demo{
     

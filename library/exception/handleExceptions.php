@@ -4,7 +4,7 @@
  * handleExceptions.php
  * 全局错误处理，前期只做简单的错误处理，后期需细分
  * 
- * late-xiao@foxmail.com
+ * 
  * */
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Application as ConsoleApplication;

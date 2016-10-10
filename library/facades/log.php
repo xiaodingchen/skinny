@@ -2,7 +2,7 @@
 /**
  * log.php
  * 
- * late-xiao@foxmail.com
+ * 
  * */
 use Monolog\Logger as Monolog;
 use lib_log_writer as Writer;

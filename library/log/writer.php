@@ -2,7 +2,7 @@
 /**
  * writer.php
  * 
- * late-xiao@foxmail.com
+ * 
  * */
 use Closure;
 use RuntimeException;
