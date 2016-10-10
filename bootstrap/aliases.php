@@ -5,4 +5,6 @@ return [
     'request' => 'lib_facades_request',
     'route' => 'lib_facades_route',
     'response' => 'lib_facades_response',
+    'url' => 'lib_facades_url',
+    'redirect' => 'base_facades_redirect',
 ];
