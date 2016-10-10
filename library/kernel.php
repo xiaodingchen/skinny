@@ -1,12 +1,75 @@
 <?php
-
+//use Symfony\Component\HttpKernel\Exception\HttpException;
+//use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use lib_pipeline_pipeline as Pipeline;
 class kernel {
 
     private static $__singleton_instance = [];
-
+    private static $__routeMiddleware = [];
+    private static $__middleware = [];
     private static $__exception_instance = null;
     private static $__running_in_console = null;
 
+    /**
+     * boot
+     * */
+    public static function boot()
+    {
+        $pathinfo = request::getPathInfo();
+        
+        // 生成part
+        if(isset($pathinfo{1})){
+            if($p = strpos($pathinfo,'/',2)){
+                $part = substr($pathinfo,0,$p);
+            }else{
+                $part = $pathinfo;
+            }
+        }else{
+            $part = '/';
+        }
+        
+        static::registRouteMiddleware();
+        
+        //$response = route::dispatch(request::instance());
+        $response = static::sendRequestThroughRouter(request::instance());
+        $response->send();
+    }
+    
+/**
+     * Send the given request through the middleware / router.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    static public function sendRequestThroughRouter($request) 
+    {
+        return (new Pipeline())
+                    ->send($request)
+                    ->through(static::$__middleware)
+                    ->then(static::dispatchToRouter());
+    }
+
+    /**
+     * Get the route dispatcher callback.
+     *
+     * @return \Closure
+     */
+    protected function dispatchToRouter()
+    {
+        return function ($request) {
+            return route::dispatch($request);
+        };
+    }
+    
+
+    static public function registRouteMiddleware()
+    {
+        foreach (static::$__routeMiddleware as $key => $middleware)
+        {
+            route::middleware($key, $middleware);
+        }
+    }
+    
     /**
      * 错误处理
      */

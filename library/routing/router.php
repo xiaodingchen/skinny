@@ -459,7 +459,7 @@ class lib_routing_router
 		$route = $this->findRoute($request);
 
         $response = $this->runRouteWithinStack($route, $request);
-        // 兼容ecos原系统, 如果控制器不返回任何信息, 意味着它决定自己做输出处理, 那么可以放弃对它采取后续行动
+        // 如果控制器不返回任何信息, 意味着它决定自己做输出处理, 那么可以放弃对它采取后续行动
         if (is_null($response))
         {
             exit;

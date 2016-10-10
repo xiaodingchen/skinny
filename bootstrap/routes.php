@@ -4,6 +4,5 @@
  * 
  * late-xiao@foxmail.com
  * */
-route::get('test.html', [
-    'uses' => 'test_ctl_demo@test'
-]);
+route::get('/', [ 'as' => 'topc', 'uses' => 'test_ctl_demo@test']);
+route::get('del.html', [ 'as' => 'er', 'uses' => 'test_ctl_demo@del']);

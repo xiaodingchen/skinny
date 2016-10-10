@@ -35,14 +35,15 @@ class lib_facades_route extends lib_facades_facade
      */
     protected static function boot()
     {
-        if (kernel::routesAreCached())
+        /*if (kernel::routesAreCached())
         {
             self::loadCachedRoutes();
         }
         else
         {
             self::loadRoutes();
-        }
+        }*/
+        self::loadRoutes();
     }
 
 	/**
@@ -50,10 +51,10 @@ class lib_facades_route extends lib_facades_facade
 	 *
 	 * @return void
 	 */
-	protected static function loadCachedRoutes()
+	/*protected static function loadCachedRoutes()
 	{
         include kernel::getCachedRoutesPath();
-	}
+	}*/
 
 	/**
 	 * Load the application routes.

@@ -66,7 +66,7 @@ class lib_http_request extends SymfonyRequest{
      * 
      * @return \Illuminate\Http\request
      * */
-    public function getMethod()
+    public function method()
     {
         return $this->getMethod();
     }
