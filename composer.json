@@ -22,9 +22,9 @@
         "autoload": {
                 "classmap": [
                 ],
-        "files": [
-            "library/support/helpers.php"
-        ]
+                "files": [
+                    "library/support/helpers.php"
+                ]
         }
 
 }

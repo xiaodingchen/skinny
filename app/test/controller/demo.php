@@ -14,6 +14,6 @@ class test_ctl_demo{
     
     public function del()
     {
-        echo 'del';
+        view::make('test/dd.html', ['item'=>'this is item']);
     }
 }
