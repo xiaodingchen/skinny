@@ -1,6 +1,6 @@
 <?php
 use Smarty;
-class lib_static_view {
+class lib_lib_view {
 
     private static $__smarty;
 

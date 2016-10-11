@@ -6,7 +6,7 @@
 		{
 			if(! static::$__view)
 			{
-				static::$__view = kernel::single('lib_static_view');
+				static::$__view = kernel::single('lib_lib_view');
 			}
 
 			return static::$__view;
