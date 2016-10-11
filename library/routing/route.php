@@ -188,10 +188,7 @@ class lib_routing_route
 	 */
 	public function middleware()
 	{
-        //echo '<pre>';
-        //var_dump($this->action);
-        //var_dump(array_get($this->action, 'middleware', []));
-        //exit;
+        
 		return (array) array_get($this->action, 'middleware', []);
 	}
     

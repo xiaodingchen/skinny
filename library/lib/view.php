@@ -1,4 +1,8 @@
 <?php
+/**
+ * view.php
+ * smarty模板处理
+ * */
 use Smarty;
 class lib_lib_view {
 
