@@ -39,10 +39,6 @@ class ComposerStaticInite5760337da8fd5997813f00669a5b6cb
             'GuzzleHttp\\Ring\\' => 16,
             'GuzzleHttp\\' => 11,
         ),
-        'E' => 
-        array (
-            'Endroid\\QrCode\\' => 15,
-        ),
         'D' => 
         array (
             'Doctrine\\Common\\Cache\\' => 22,
@@ -94,10 +90,6 @@ class ComposerStaticInite5760337da8fd5997813f00669a5b6cb
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
-        ),
-        'Endroid\\QrCode\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/endroid/qrcode/src',
         ),
         'Doctrine\\Common\\Cache\\' => 
         array (
