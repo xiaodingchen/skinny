@@ -232,7 +232,7 @@ class lib_log_writer implements PsrLoggerInterface
      * @param  string  $level
      * @return void
      */
-    public function useSyslog($name = 'luckymall', $level = 'debug')
+    public function useSyslog($name = 'skinny', $level = 'debug')
     {
         return $this->monolog->pushHandler(new SyslogHandler($name, LOG_USER, $level));
     }

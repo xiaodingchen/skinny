@@ -33,4 +33,23 @@ class lib_static_app {
     {
         return kernel::single($this->app_id . '_mdl_' . $model, $this);
     }
+    
+    /**
+     * 
+     * 取得一个数据库资源
+     * */
+    public function database()
+    {
+        $prefix = $this->getDataBasePrefix();
+        
+        return db::connection($prefix);
+    }
+    
+    /**
+     * 每个应用都可以设置自己的数据库,在database.php文件中配置
+     * */
+    public function getDataBasePrefix()
+    {
+        return $this->app_id;
+    }
 }
