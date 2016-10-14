@@ -19,7 +19,9 @@ return [
     // 指定应用的表前缀,切记不要前缀名不要重复,默认表前缀为app_name
     'app_table_prefix' => [
         // 'app_name' => 'table_prefix',
-    ]
+    ],
+    
+    'app_dbtable_dir' => 'dbtable',
 
     
 ];

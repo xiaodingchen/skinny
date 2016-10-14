@@ -21,11 +21,21 @@ class lib_lib_model {
         $this->app = $app;
     }
     
+    /**
+     * 返回一个数据库对象
+     * 
+     * */
     public function database()
     {
         return $this->app->database();
     }
     
+    /**
+     * 获取当前数据表名
+     * 
+     * @param $real
+     * @return string
+     * */
     public function getTableName($real = false)
     {
         $className = get_class($this);
