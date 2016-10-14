@@ -46,7 +46,7 @@ class lib_lib_model {
             $tableName = $this->app->app_id.'_'.$tableName;
             // 获取指定表前缀
             $prefixs = config::get('database.app_table_prefix', []);
-            if($prefixs)
+            if($prefixs && array_key_exists($this->app->app_id, $prefixs))
             {
                 $prefix = $prefixs[$this->app->app_id];
                 $tableName = $prefix . '_' . $tableName;
