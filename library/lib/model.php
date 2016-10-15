@@ -33,7 +33,7 @@ class lib_lib_model {
     /**
      * 获取当前数据表名
      * 
-     * @param $real
+     * @param bool $real
      * @return string
      * */
     public function getTableName($real = false)

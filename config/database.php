@@ -22,6 +22,7 @@ return [
     ],
     
     'app_dbtable_dir' => 'dbtable',
+    'type_define' => [],
 
     
 ];
