@@ -3,7 +3,6 @@
  * update.php
  *
  * */
-use Symfony\Component\Console\Application as ConsoleApplication;
 
 class lib_command_update implements lib_command_interface{
     
@@ -22,7 +21,7 @@ class lib_command_update implements lib_command_interface{
         $appList = app::getAppList();
         if(! $appList)
         {
-            throw new RuntimeException ('No application found');
+            throw new RuntimeException ('Application no  found');
         }
         
         foreach ($appList as $appName)

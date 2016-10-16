@@ -18,7 +18,7 @@ class lib_database_dbtable_table {
     public function __construct(App $app)
     {
         $this->app = $app;
-        $this->tableDirName = config::get('database.app_dbtable_dir', 'dbschema');
+        $this->tableDirName = config::get('database.app_dbtable_dir', 'dbtable');
         $this->typeDefines = config::get('database.type_define', []);
     }
     
@@ -29,7 +29,6 @@ class lib_database_dbtable_table {
      * */
     public function update()
     {
-        logger::info("Updating {$this->app->app_id} application database");
         foreach ($this->iterator() as $fileInfo)
         {
            $fileName = $fileInfo->getFilename();
@@ -75,6 +74,7 @@ class lib_database_dbtable_table {
             logger::info($sql);
             $db->exec($sql);
         }
+        
     }
     
     /**
@@ -210,17 +210,7 @@ class lib_database_dbtable_table {
         return $this->key;
     }
     
-    // 自定义数据类型
-    public function getDefineDoctrineType($type)
-    {
-        if (!$type) return null;
-        return $this->typeDefines[$type]['doctrineType'];
-    }
     
-    public function isExistDefine($type)
-    {
-        return $this->typeDefines[$type] ? true : false;
-    }
     
     /**
      * 处理DoctrineType
@@ -256,6 +246,36 @@ class lib_database_dbtable_table {
     
             return [$type, $options];
     
+    }
+    
+    // 自定义数据类型
+    public function getDefineDoctrineType($type)
+    {
+        if (!$type) return null;
+        return $this->typeDefines[$type]['doctrineType'];
+    }
+    
+    public function isExistDefine($type)
+    {
+        return $this->typeDefines[$type] ? true : false;
+    }
+    
+    public function getDefineFuncInput($type)
+    {
+        if (!$type) return null;
+        return $this->typeDefines[$type]['func_input'];
+    }
+    
+    public function getDefineFuncOutput($type)
+    {
+        if (!$type) return null;
+        return $this->typeDefines[$type]['func_output'];
+    }
+    
+    public function getDefineSql($type)
+    {
+        if (!$type) return null;
+        return $this->typeDefines[$type]['sql'];
     }
     
    

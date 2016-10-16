@@ -11,6 +11,12 @@ class lib_static_app {
     {
         if($app_id)
         {
+            $appList = self::getAppList();
+            if(! in_array($app_id, $appList))
+            {
+                throw new LogicException("{$app_id} not found");
+            }
+            
             $this->app_id = $app_id;
             $this->app_dir = APP_DIR . '/' . $app_id;
             $this->public_app_dir = PUBLIC_DIR . '/app/' . $app_id;
