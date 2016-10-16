@@ -8,8 +8,9 @@ class test_ctl_demo extends lib_lib_controller{
     
     public function test()
     {
-        throw new Exception('哈哈哈');
-        echo 11;
+        $objTable = kernel::single('lib_database_dbtable_table', app::get('test'));
+        $objTable->update();
+        echo 2222;
     }
     
     public function del()

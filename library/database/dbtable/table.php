@@ -23,7 +23,10 @@ class lib_database_dbtable_table {
     }
     
     
-    
+    /**
+     * 
+     * 更新数据表
+     * */
     public function update()
     {
        foreach ($this->iterator() as $fileInfo)
@@ -34,6 +37,10 @@ class lib_database_dbtable_table {
                $this->key = substr($fileName,0,-4);
                $this->updateTable();
            }
+           else
+           {
+               continue;
+           }
        }
     }
     
@@ -41,7 +48,6 @@ class lib_database_dbtable_table {
     {
         $appId = $this->app->app_id;
         $db = $this->app->database();
-        $comparator = new \Doctrine\DBAL\Schema\Comparator();
         $realTableName = $this->realTableName();
         $toSchema = $this->createTableSchema();
         // 如果存在原始表, 则通过原始表建立schema对象
@@ -111,6 +117,9 @@ class lib_database_dbtable_table {
         return $schema;
     }
     
+    /**
+     * 返回真是的表名
+     * */
     public function realTableName()
     {
         $tableName = $this->app->app_id.'_'.$this->key();
@@ -135,7 +144,7 @@ class lib_database_dbtable_table {
         $realTableName = $this->realTableName();
         if(!static::$_define[$realTableName])
         {
-            $path = $this->app->app_dir . '/' . $this->tableDirName . $this->key . '.php';
+            $path = $this->app->app_dir . '/' . $this->tableDirName . '/' . $this->key . '.php';
         
             $define = $this->loadDefine($path);
         
@@ -188,7 +197,7 @@ class lib_database_dbtable_table {
     
 
     public function filter($fileName){
-        return substr($fileName,-4,4)=='.php' && is_file($this->getPathname());
+        return substr($fileName,-4,4)=='.php' && is_dir($this->getPathname());
     }
     
     public function getPathname(){
@@ -212,6 +221,12 @@ class lib_database_dbtable_table {
         return $this->typeDefines[$type] ? true : false;
     }
     
+    /**
+     * 处理DoctrineType
+     * 
+     * @param array $columnDefine
+     * @return array
+     * */
     public function createDoctrineType($columnDefine)
     {
         $options = [];

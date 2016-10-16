@@ -8,15 +8,14 @@
 return array(
     'columns' => array(
         'user_id' => array(
-            'type' => 'int',
+            'type' => 'integer',
             'unsigned' => true,
             'autoincrement' => true,
             'required' => false,
-            'default' => false,
             'comment' => '会员ID'
         ),
         'username' => array(
-            'type' => 'varchar',
+            'type' => 'string',
             'length' => 50,
             'required' => true,
             'default' => '',
@@ -24,8 +23,9 @@ return array(
         ),
         
         'point' => array(
-            'type' => 'int',
+            'type' => 'integer',
             'default' => 0,
+            'unsigned' => false,
             'required' => true,
             'comment' => '积分'
         ),
@@ -41,13 +41,14 @@ return array(
             'commnet' => '性别'
         ),
         'wedlock' => array(
-            'type' => 'bool',
+            'type' => 'boolean',
             'default' => 0,
             'required' => true,
             'comment' => '婚姻状况'
         ),
         'regtime' => array(
-            'type' => 'int',
+            'type' => 'integer',
+            'unsigned' => true,
             'default' => 0,
             'required' => true,
             'comment' => '婚姻状况'

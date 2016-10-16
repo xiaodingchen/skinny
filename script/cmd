@@ -1,0 +1,6 @@
+#!/usr/bin/env php
+<?php
+    require __DIR__.'/../bootstrap/start.php';
+
+    kernel::simulateRunningInConsole();
+    kernel::single('lib_command_command')->run();

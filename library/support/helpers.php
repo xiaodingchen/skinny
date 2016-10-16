@@ -842,3 +842,30 @@ if (! function_exists('array_column')) {
     }
 }
 
+if(!function_exists('readline')){
+
+    function readline($prompt){
+        echo $prompt;
+        //ob_flush();
+        $input = '';
+        while(1){
+            $key = fgetc(STDIN);
+            switch($key){
+                case "\n":
+                    return $input;
+
+                default:
+                    $input.=$key;
+            }
+        }
+    }
+
+    function readline_add_history($line){
+        //...
+    }
+
+    function readline_completion_function($callback){
+
+    }
+}
+
