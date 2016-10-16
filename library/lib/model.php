@@ -5,6 +5,8 @@
  *
  * 数据模型基类
  * */
+use lib_static_app as App;
+
 class lib_lib_model {
 
     /**
@@ -16,7 +18,7 @@ class lib_lib_model {
     
     private $__exists_schema = [];
     
-    public function __construct($app)
+    public function __construct(App $app)
     {
         $this->app = $app;
     }

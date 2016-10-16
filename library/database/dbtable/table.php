@@ -29,8 +29,9 @@ class lib_database_dbtable_table {
      * */
     public function update()
     {
-       foreach ($this->iterator() as $fileInfo)
-       {
+        logger::info("Updating {$this->app->app_id} application database");
+        foreach ($this->iterator() as $fileInfo)
+        {
            $fileName = $fileInfo->getFilename();
            if($this->filter($fileName))
            {
@@ -41,7 +42,7 @@ class lib_database_dbtable_table {
            {
                continue;
            }
-       }
+        }
     }
     
     public function updateTable()

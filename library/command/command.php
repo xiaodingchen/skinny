@@ -93,7 +93,7 @@ class lib_command_command{
                 }
                 else
                 {
-                    logger::info("Error: {$commandClassName}  must implement the lib_command_interface interface");
+                    logger::info("Error: {$commandClassName}  must implement the lib_command_interface interface.");
                     
                     exit;
                 }
@@ -117,7 +117,7 @@ class lib_command_command{
             return $commands[$command];
         }
         
-        logger::info($command . ':Command not defined');
+        logger::info($command . ':Command not defined.');
         exit;
     }
     
