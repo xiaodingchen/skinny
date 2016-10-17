@@ -37,7 +37,7 @@ class lib_lib_model {
     public function getSchema()
     {
         $table = $this->getTableName();
-        $path = $this->app->app_dir . '/' . $this->tableDirName . '/' . $table;
+        $path = $this->app->app_dir . '/' . $this->tableDirName . '/' . $table . '.php';
         if(!isset($this->__exists_schema[$this->app->app_id][$table])){
             $this->__exists_schema[$this->app->app_id][$table] = $this->getTableDefine()->loadDefine($path);
         }
