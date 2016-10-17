@@ -84,8 +84,9 @@ class lib_command_command{
                 $this->phpCall($command);
             }else{
                 // 执行自定义的命令
-                logger::info('Scanning local Applications...');
                 $commandClassName = $this->checkCommand($command);
+                
+                logger::info('Scanning local Applications...');
                 $commandObj = new $commandClassName();
                 if($commandObj instanceof lib_command_interface)
                 {
