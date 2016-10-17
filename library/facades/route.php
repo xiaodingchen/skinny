@@ -58,7 +58,6 @@ class lib_facades_route extends lib_facades_facade
 	 */
 	protected function loadRoutes()
 	{
-        if (defined('CUSTOM_CORE_DIR')) $paths[] = BOOT_DIR.'/custom_routes.php';
         $paths[] = BOOT_DIR.'/routes.php';
 
         $file = kernel::single('lib_lib_filesystem');

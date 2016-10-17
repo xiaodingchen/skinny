@@ -86,4 +86,9 @@ class lib_static_app {
     {
         return $this->app_id;
     }
+    
+    public function getParentModelClass()
+    {
+        return 'lib_lib_model';
+    }
 }

@@ -158,15 +158,13 @@ class ClassLoader {
                     try {
                         static::commonLoad ( $appId, $className, $type, implode ( '/', array_slice ( $fragments, 2 ) ) );
                     } catch ( RuntimeException $e ) {
-                        $paths = [ ];
-                        $relativePath = sprintf ( '%s/dbschema/%s.php', $appId, implode ( '_', array_slice ( $fragments, 2 ) ) );
-                        if (defined ( 'CUSTOM_CORE_DIR' ))
-                            $paths [] = CUSTOM_CORE_DIR . '/' . $relativePath;
+                        $paths = [];
+                        $relativePath = sprintf ( '%s/%s/%s.php', $appId, config::get('database.app_dbtable_dir', 'dbtable'), implode ( '_', array_slice ( $fragments, 2 ) ) );
                         $paths [] = APP_DIR . '/' . $relativePath;
                         
                         foreach ( $paths as $path ) {
                             if (file_exists ( $path )) {
-                                $parent_model_class = app::get ( $appId )->get_parent_model_class ();
+                                $parent_model_class = app::get ( $appId )->getParentModelClass();
                                 eval ( "class {$className} extends {$parent_model_class}{ }" );
                                 return true;
                             }
