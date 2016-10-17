@@ -48,7 +48,7 @@ return array(
         ),
         'regtime' => array(
             'type' => 'integer',
-            'unsigned' => true,
+            'unsigned' => false,
             'default' => 0,
             'required' => true,
             'comment' => '婚姻状况'

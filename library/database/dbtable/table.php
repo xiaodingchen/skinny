@@ -29,6 +29,10 @@ class lib_database_dbtable_table {
      * */
     public function update()
     {
+        if(! $this->iterator())
+        {
+            return false;
+        }
         foreach ($this->iterator() as $fileInfo)
         {
            $fileName = $fileInfo->getFilename();
@@ -190,10 +194,8 @@ class lib_database_dbtable_table {
             
             return $coreDir;
         }
-        else{
-            return new ArrayIterator(array());
-        }
         
+        return false;
     }
     
 
