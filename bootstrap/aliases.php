@@ -11,6 +11,4 @@ return [
     'redirect' => 'lib_facades_redirect',
     'view' => 'lib_facades_view',
     'tools' => 'lib_static_tool',
-    // 時間助手，源自thinkPHP
-    'time' => 'lib_static_time',
 ];
