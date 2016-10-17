@@ -4,7 +4,7 @@
  *
  * */
 
-class lib_command_update implements lib_command_interface{
+class lib_command_set_update implements lib_command_interface{
     
     public function commandTitle()
     {

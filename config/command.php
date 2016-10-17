@@ -5,5 +5,5 @@
  * 定义命令
  * */
 return [
-    'update' => 'lib_command_update',
+    'update' => 'lib_command_set_update',
 ];
