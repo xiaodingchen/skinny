@@ -17,7 +17,7 @@ class lib_cache_driver_file implements lib_cache_interface{
     {
         if(! $this->config)
         {
-            $this->config = config::get('cache.type.file', []);
+            $this->config = config::get('cache.drivers.file', []);
         }
         
         return $this->config;
