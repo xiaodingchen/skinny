@@ -15,12 +15,17 @@ class lib_cache_driver_file implements lib_cache_interface{
     
     public function getConfig()
     {
+        if(! $this->config)
+        {
+            $this->config = config::get('cache.type.file', []);
+        }
         
+        return $this->config;
     }
     
-    public function setConfig($configs)
+    public function setConfig(array $configs)
     {
-        
+        $this->config = $configs;
     }
     
     public function get($key, $default = null)
