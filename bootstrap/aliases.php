@@ -11,4 +11,5 @@ return [
     'redirect' => 'lib_facades_redirect',
     'view' => 'lib_facades_view',
     'tools' => 'lib_static_tool',
+    'redis' => 'lib_facades_redis',
 ];

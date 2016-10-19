@@ -6,13 +6,9 @@
  * */
 interface lib_cache_interface {
 
-    public function getConfig();
+    public function get($key);
 
-    public function setConfig(array $configs);
-
-    public function get($key, $default = null);
-
-    public function set($key, $value = '');
+    public function set($key, $value, $seconds);
 
     public function delete($key);
 
