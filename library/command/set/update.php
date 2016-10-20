@@ -13,7 +13,7 @@ class lib_command_set_update implements lib_command_interface{
     
     public function commandExplain()
     {
-        return '';
+        return 'update AllList';
     }
     
     public function handle(array $args = [])

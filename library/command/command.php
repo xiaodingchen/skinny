@@ -113,6 +113,8 @@ class lib_command_command{
     public function checkCommand($command)
     {
         $commands = config::get('command', []);
+        $commands = array_merge($this->getDefaultDefineCommand(), $commands);
+        
         if($command && array_key_exists($command, $commands))
         {
             return $commands[$command];
@@ -120,6 +122,14 @@ class lib_command_command{
         
         logger::info($command . ':Command not defined.');
         exit;
+    }
+    
+    public function getDefaultDefineCommand()
+    {
+        return [
+            'help'=>'lib_command_set_help',
+            'list'=>'lib_command_set_list',
+        ];
     }
     
     // 处理简单的php语句
