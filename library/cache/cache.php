@@ -7,6 +7,7 @@ use lib_support_arr as Arr;
 use lib_cache_driver_null as NullStore;
 use lib_cache_driver_memcached as MemcachedStore;
 use lib_cache_driver_apc as ApcStore;
+use lib_cache_driver_file as FileStore;
 
 class lib_cache_cache{
     
@@ -35,7 +36,7 @@ class lib_cache_cache{
         
         $config = config::get('cache.' . $name, []);
         
-        if(! $config && $name != 'apc')
+        if(! $config && !in_array($name, 'apc', 'file'))
         {
             throw new RuntimeException($name.' cache store configure not found.');
         }
@@ -64,16 +65,12 @@ class lib_cache_cache{
      * @return base_cache_repository
      */
     
-    /* protected function createSecacheDriver(array $config)
+    protected function createFileDriver(array $config)
     {
         $prefix = $this->getPrefix($config);
     
-        $size = Arr::get($config, 'size', '1g');
-    
-        $file = Arr::get($config, 'file', 'secache');
-    
-        return $this->repository(new SecacheStore(new base_cache_store_secacheEngine(CACHE_DIR, $file, $size), $prefix));
-    } */
+        return new FileStore($prefix);
+    } 
     
     /**
      * Create an instance of the Null cache driver.
