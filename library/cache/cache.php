@@ -34,7 +34,7 @@ class lib_cache_cache{
             return $this->createNullDriver();
         }
         
-        $config = config::get('cache.' . $name, []);
+        $config = config::get('cache.drivers' . $name, []);
         
         if(! $config && !in_array($name, 'apc', 'file'))
         {
@@ -107,6 +107,13 @@ class lib_cache_cache{
         $prefix = $this->getPrefix($config);
     
         return new ApcStore($prefix);
+    }
+    
+    public function __call($method, $args)
+    {
+        $obj = $this->store();
+        
+        return call_user_func_array([$obj, $method], $args);
     }
     
     

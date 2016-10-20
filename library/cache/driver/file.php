@@ -100,7 +100,7 @@ class lib_cache_driver_file implements lib_cache_interface{
         $key = $this->_getRealKey($key);
         $filename = md5($key);
         $path = CACHE_DIR;
-        $filepath = $path.'/'.$filename;
+        $filepath = $path.'/'.$filename.'.php';
         
         return $filepath;
     }
