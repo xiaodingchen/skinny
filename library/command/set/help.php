@@ -66,15 +66,8 @@ class lib_command_set_help implements lib_command_interface {
      * */
     protected function _checkCommand($command)
     {
-        $commands = config::get('command', []);
-        $commands = array_merge(['help', 'list'], $commands);
-        if($command && array_key_exists($command, $commands))
-        {
-            return $commands[$command];
-        }
-    
-        logger::info($command . ':Command not defined. You can use the "list" command to view the supported commands.');
-        exit;
+        $obj = new lib_command_command();
+        return $obj->checkCommand($command);
     }
 }
 
