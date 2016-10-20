@@ -69,7 +69,7 @@ class lib_lib_view {
         static::$__smarty->right_delimiter = config::get('tpl.right_delimiter'); // 设置右定界符
         // 设置插件目录
         // 框架插件目录
-        $plugins_dir[] = LIB_DIR.'/plugins/smarty';
+        $plugins_dir[] = SCRIPT_DIR.'/plugins/smarty';
         $apps = config::get('tpl.tpl_plugins_apps');
         if ($apps)
         {
