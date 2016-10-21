@@ -63,6 +63,6 @@ class lib_lib_controller {
      * */
     public function returnJson($data = [])
     {
-        return response::json($data);
+        return response::json($data)->send();
     }
 }
