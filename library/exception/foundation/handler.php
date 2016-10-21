@@ -4,8 +4,6 @@
  * 
  * */
 use lib_exception_contracts_exceptionHandler as exceptionHandler;
-use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Console\Application as ConsoleApplication;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class lib_exception_foundation_handler implements exceptionHandler {
@@ -15,6 +13,8 @@ class lib_exception_foundation_handler implements exceptionHandler {
      * @param  \Exception  $e
      * @return void
      */
+    use lib_exception_trait_console;
+    
     public function report(Exception $e)
     {
         
@@ -29,21 +29,23 @@ class lib_exception_foundation_handler implements exceptionHandler {
      */
     public function render($request, Exception $e)
     {
+        if($request->ajax())
+        {
+            $data = [];
+            $data['code'] = $e->getCode();
+            $data['msg'] = $e->getMessage();
+            return response::json($data)->send();
+        }
+        
+        $debug = config::get('app.debug', false);
+        if($debug)
+        {
+            return $this->renderExceptionWithWhoops($e);
+        }
+        
         
     }
     
-    /**
-     * Render an exception to the console.
-     *
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     * @param  \Exception  $e
-     * @return void
-     */
-    public function renderForConsole(Exception $e)
-    {
-        $output = new ConsoleOutput();
-        (new ConsoleApplication)->renderException($e, $output);
-    }
     
     /**
      * 使用whoops错误处理组件

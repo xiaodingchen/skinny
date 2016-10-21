@@ -6,12 +6,11 @@
  * 
  * 
  * */
-use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Console\Application as ConsoleApplication;
+
 use Symfony\Component\Debug\Exception\FatalErrorException;
-use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 class lib_exception_handleExceptions {
 
+    protected $exceptionHandler;
     /**
      * 定义全局错误处理
      * */
@@ -40,10 +39,10 @@ class lib_exception_handleExceptions {
         logger::error($e);
         if(kernel::runningInConsole())
         {
-            return $this->renderForConsole($e);
+            return $this->getExceptionHandler()->renderForConsole($e);
         }
-        // 需要区分http请求模式，后期扩展
-        return $this->renderExceptionWithWhoops($e);
+        // 区分http请求模式
+        return $this->getExceptionHandler()->render(request::instance(), $e);
         
     }
     
@@ -82,28 +81,21 @@ class lib_exception_handleExceptions {
         
         return $a;
     }
-
-    /**
-     * 使用whoops错误处理组件
-     * */
-    protected function renderExceptionWithWhoops(Exception $e)
+    
+    public function getExceptionHandler()
     {
-        $whoops = new \Whoops\Run;
-        $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
-
-        return new SymfonyResponse(
-            $whoops->handleException($e),
-            $e->getStatusCode(),
-            $e->getHeaders()
-            );
+       if(! $this->exceptionHandler instanceof lib_exception_contracts_exceptionHandler)
+       {
+           $this->exceptionHandler = new lib_exception_foundation_handler();
+       }
+       
+       return $this->exceptionHandler;
     }
     
-    /**
-     * 命令模式下错误处理
-     * */
-    protected function renderForConsole(Exception $e)
+    public function setExceptionHandler(lib_exception_contracts_exceptionHandler $handler)
     {
-        $output = new ConsoleOutput();
-        (new ConsoleApplication)->renderException($e, $output);
+        $this->exceptionHandler = $handler;
     }
+
+    
 }
