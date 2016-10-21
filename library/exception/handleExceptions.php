@@ -36,13 +36,14 @@ class lib_exception_handleExceptions {
     
     public function handleException($e)
     {
-        logger::error($e);
+        $this->getExceptionHandler()->report($e);
+
         if(kernel::runningInConsole())
         {
             return $this->getExceptionHandler()->renderForConsole($e);
         }
         // 区分http请求模式
-        return $this->getExceptionHandler()->render(request::instance(), $e);
+        return $this->getExceptionHandler()->render(request::instance(), $e)->send();
         
     }
     

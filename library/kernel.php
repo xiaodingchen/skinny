@@ -9,6 +9,7 @@ class kernel {
     private static $__middleware = [];
     private static $__exception_instance = null;
     private static $__running_in_console = null;
+    public static $base_url = null;
 
     /**
      * boot
@@ -33,6 +34,48 @@ class kernel {
         //$response = route::dispatch(request::instance());
         $response = static::sendRequestThroughRouter(request::instance());
         $response->send();
+    }
+
+    public static function removeIndex($root) {
+        $i = 'index.php';
+
+        return str_contains($root, $i) ? str_replace('/'.$i, '', $root) : $root;
+    }
+
+    public static function baseUrl($full=false){
+        $c = ($full) ? 'true' : 'false';
+        if(!isset(self::$__base_url[$c]) || defined('BASE_URL')){
+            if(defined('BASE_URL')){
+
+                if($full){
+                    self::$__base_url[$c] = constant('BASE_URL');
+                }else{
+                    $url = parse_url(constant('BASE_URL'));
+                    if(isset($url['path'])){
+                        self::$__base_url[$c] = $url['path'];
+                    }else{
+                        self::$__base_url[$c] = '';
+                    }
+                }
+            }else{
+                if(!isset(self::$base_url)){
+                    self::$base_url = static::removeIndex(request::getBaseUrl());
+                    // 目前的方式是保持request的纯洁性. 在base_url中做特殊处理.
+                }
+
+                if(self::$base_url == '/'){
+                    self::$base_url = '';
+                }
+
+                if($full){
+                    self::$__base_url[$c] = static::removeIndex(request::root());
+                }else{
+                    self::$__base_url[$c] = self::$base_url;
+                }
+            }
+        }
+
+        return self::$__base_url[$c];
     }
     
 /**
