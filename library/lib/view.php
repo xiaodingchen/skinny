@@ -30,8 +30,6 @@ class lib_lib_view {
      */
     public function make($tpl, array $data = [], $return = false)
     {
-        // print_r($this->__smarty->getPluginsDir());
-        // exit;
         $tpl_arr = explode('/', $tpl);
         if (count($tpl_arr) < 2)
         {
@@ -79,8 +77,7 @@ class lib_lib_view {
         $this->__smarty->setRightDelimiter($right_delimiter);
         // 设置插件目录
         // 框架插件目录
-        //$plugins_dir[] = SCRIPT_DIR.'/plugins/smarty/';
-        $plugins_dir = [];
+        $plugins_dir[] = SCRIPT_DIR.'/plugins/smarty/';
         $apps = config::get('tpl.tpl_plugins_apps');
         if ($apps)
         {

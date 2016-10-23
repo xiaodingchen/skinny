@@ -109,9 +109,15 @@ class ClassLoader {
     {
         $typePath = LIB_DIR;
         $tmpArr = explode('_', $className);
+        // 兼容smarty文件
+        if($tmpArr[0] == 'Smarty')
+        {
+            return false;
+        }
+        
         if($tmpArr[0] != 'lib')
         {
-            throw new RuntimeException ( 'Don\'t find file:' . $className );
+            throw new RuntimeException ( 'Don\'t find :' . $className .' file.' );
         }
         unset($tmpArr[0]);
         $tmpStr = implode('/', $tmpArr) . '.php';

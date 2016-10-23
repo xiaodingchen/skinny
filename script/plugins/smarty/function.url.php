@@ -31,9 +31,23 @@
  * @return string|null
  */
 
-function smarty_function_url($params)
+function smarty_function_url($params, $template)
 {
-    logger::info('test:'.json_encode($params));
-
-    return '111';
+    list($type) = array_keys($params);
+    $value = array_shift($params);
+    switch ($type)
+    {
+        case 'action':
+            $url = url::action($value, $params);
+            break;
+        case 'to':
+            $url = url::to($value, $params);
+            break;
+        case 'route':
+            $url = url::route($value, $params);
+            break;
+        default:
+            throw new SmartyException($type . ' Not in the middle of [action, to, route]');
+    }
+    return $url;
 }
