@@ -4,6 +4,7 @@
  * 
  * 
  * */
-route::get('/', [ 'as' => 'topc', 'uses' => 'test_ctl_demo@test']);
-route::get('del.html', [ 'as' => 'er', 'uses' => 'test_ctl_demo@del']);
-route::get('item-{test}.html', [ 'as' => 'er', 'uses' => 'test_ctl_demo@item']);
+route::get('/', [ 'as' => 'index', 'uses' => 'index_ctl_index@index']);
+route::get('test/{id}.html', [ 'as' => 'index.test', 'uses' => 'index_ctl_index@test']);
+route::get('get.html', [ 'as' => 'index.get', 'uses' => 'index_ctl_index@get']);
+route::get('view.html', [ 'as' => 'index.view', 'uses' => 'index_ctl_index@view']);

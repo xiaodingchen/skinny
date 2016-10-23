@@ -30,6 +30,6 @@ interface lib_exception_contracts_exceptionHandler {
      * @param  \Exception  $e
      * @return void
      */
-    public function renderForConsole($output, Exception $e);
+    public function renderForConsole(Exception $e);
 }
 

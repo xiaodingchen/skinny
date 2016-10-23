@@ -6,21 +6,18 @@
 use Smarty;
 class lib_lib_view {
 
-    private static $__smarty;
+    private  $__smarty;
 
     public function __construct()
     {
-        if (! static::$__smarty)
-        {
-            static::$__smarty = new Smarty();
-        }
-        
+        $this->__smarty = new Smarty();
+
         $this->setSmartyOptions();
     }
 
     public function getSmartyInstance()
     {
-        return static::$__smarty;
+        return $this->__smarty;
     }
 
     /**
@@ -33,26 +30,30 @@ class lib_lib_view {
      */
     public function make($tpl, array $data = [], $return = false)
     {
+        // print_r($this->__smarty->getPluginsDir());
+        // exit;
         $tpl_arr = explode('/', $tpl);
         if (count($tpl_arr) < 2)
         {
             throw new \SmartyException('Tpl file path is not valid');
         }
         
-        static::$__smarty->template_dir = APP_DIR . '/' . $tpl_arr[0] . '/' . config::get('tpl.app_tpl_dir');
+        $template_dir = APP_DIR . '/' . $tpl_arr[0] . '/' . config::get('tpl.app_tpl_dir');
+        $this->__smarty->setTemplateDir($template_dir);
+        
         unset($tpl_arr[0]);
         
         $tpl = implode('/', $tpl_arr);
         foreach ($data as $key => $value)
         {
-            static::$__smarty->assign($key, $value);
+            $this->__smarty->assign($key, $value);
         }
         if ($return)
         {
-            return static::$__smarty->fetch($tpl);
+            return $this->__smarty->fetch($tpl);
         }
         
-        return static::$__smarty->display($tpl);
+        return $this->__smarty->display($tpl);
     }
     
     /**
@@ -60,16 +61,26 @@ class lib_lib_view {
      * */
     protected function setSmartyOptions()
     {
-        static::$__smarty->compile_dir = config::get('tpl.compile_dir'); // 编译目录
-        static::$__smarty->cache_dir = config::get('tpl.cache_dir'); // 缓存目录
-        static::$__smarty->config_dir = CONFIG_DIR; // 配置目录
-        static::$__smarty->caching = config::get('tpl.caching'); // 是否开启缓存
-        static::$__smarty->cache_lifetime = config::get('tpl.cache_lifetime'); // 缓存时间
-        static::$__smarty->left_delimiter = config::get('tpl.left_delimiter'); // 设置左定界符
-        static::$__smarty->right_delimiter = config::get('tpl.right_delimiter'); // 设置右定界符
+        $compile_dir = config::get('tpl.compile_dir'); // 编译目录
+        $cache_dir = config::get('tpl.cache_dir'); // 缓存目录
+        $config_dir = CONFIG_DIR; // 配置目录
+        $caching = config::get('tpl.caching'); // 是否开启缓存
+        $cache_lifetime = config::get('tpl.cache_lifetime'); // 缓存时间
+        $left_delimiter = config::get('tpl.left_delimiter'); // 设置左定界符
+        $right_delimiter = config::get('tpl.right_delimiter'); // 设置右定界符
+        
+        $this->__smarty->setCompileDir($compile_dir)
+                        ->setCacheDir($cache_dir)
+                        ->setConfigDir($config_dir);
+        
+        $this->__smarty->setCaching($caching);
+        $this->__smarty->setCacheLifetime($cache_lifetime);
+        $this->__smarty->setLeftDelimiter($left_delimiter);
+        $this->__smarty->setRightDelimiter($right_delimiter);
         // 设置插件目录
         // 框架插件目录
-        $plugins_dir[] = SCRIPT_DIR.'/plugins/smarty';
+        //$plugins_dir[] = SCRIPT_DIR.'/plugins/smarty/';
+        $plugins_dir = [];
         $apps = config::get('tpl.tpl_plugins_apps');
         if ($apps)
         {
@@ -77,8 +88,9 @@ class lib_lib_view {
             {
                 $plugins_dir[] = APP_DIR . '/' . $app . '/service/' . config::get('tpl.app_tpl_plugins_dir');
             }
-    
-            static::$__smarty->plugins_dir = $plugins_dir;
         }
+
+        $this->__smarty->addPluginsDir($plugins_dir);
+        
     }
 }

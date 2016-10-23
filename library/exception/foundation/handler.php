@@ -12,7 +12,7 @@ use lib_exception_contracts_exceptionHandler as exceptionHandler;
 
 class lib_exception_foundation_handler implements exceptionHandler {
     
-    use lib_exception_trait_console;
+    use \lib_exception_foundation_trait_console;
 
     protected $dontReport = [];
 
