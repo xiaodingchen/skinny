@@ -51,7 +51,7 @@ return array(
             'unsigned' => false,
             'default' => 0,
             'required' => true,
-            'comment' => '婚姻状况'
+            'comment' => '注册时间'
         )
     ),
     
