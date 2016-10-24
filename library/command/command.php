@@ -152,7 +152,7 @@ class lib_command_command{
                 case 'double':
                 case 'resource':
                 case 'string':
-                    echo $data;
+                    consoleColor::outputText($data);
                     break;
     
                 case 'array':
