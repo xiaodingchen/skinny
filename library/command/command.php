@@ -166,7 +166,7 @@ class lib_command_command{
     
     public function print_welcome()
     {
-        consoleColor::outputText("skinny shell (abort with ^C), Root: ",ROOT_DIR, 'waring');
+        consoleColor::outputText("skinny shell (abort with ^C), Root: ".ROOT_DIR, 'warning');
         
     }
 }

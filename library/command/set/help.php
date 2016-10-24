@@ -19,7 +19,7 @@ class lib_command_set_help implements lib_command_interface {
         $command = $args[0];
         if(! $command)
         {
-            logger::info('command list');
+            consoleColor::outputText('command list','warning');
             $command = 'list';
         }
         $commandClassName = $this->_checkCommand($command);
