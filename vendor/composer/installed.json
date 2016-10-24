@@ -103,6 +103,55 @@
         ]
     },
     {
+        "name": "psr/log",
+        "version": "1.0.2",
+        "version_normalized": "1.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-10-10 12:19:37",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Log\\": "Psr/Log/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for logging libraries",
+        "homepage": "https://github.com/php-fig/log",
+        "keywords": [
+            "log",
+            "psr",
+            "psr-3"
+        ]
+    },
+    {
         "name": "symfony/debug",
         "version": "v2.5.12",
         "version_normalized": "2.5.12.0",
@@ -1683,55 +1732,6 @@
         "homepage": "http://www.smarty.net",
         "keywords": [
             "templating"
-        ]
-    },
-    {
-        "name": "psr/log",
-        "version": "1.0.2",
-        "version_normalized": "1.0.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/php-fig/log.git",
-            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
-            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "time": "2016-10-10 12:19:37",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Psr\\Log\\": "Psr/Log/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "PHP-FIG",
-                "homepage": "http://www.php-fig.org/"
-            }
-        ],
-        "description": "Common interface for logging libraries",
-        "homepage": "https://github.com/php-fig/log",
-        "keywords": [
-            "log",
-            "psr",
-            "psr-3"
         ]
     }
 ]
