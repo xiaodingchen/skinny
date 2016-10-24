@@ -12,5 +12,6 @@ return [
     'view' => 'lib_facades_view',
     'tools' => 'lib_static_tool',
     'redis' => 'lib_facades_redis',
-    'cache' => 'lib_cache_cache',
+    'cache' => 'lib_facades_cache',
+    'hash' => 'lib_facades_hash',
 ];
