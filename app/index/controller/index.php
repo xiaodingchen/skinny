@@ -8,8 +8,7 @@ class index_ctl_index extends lib_lib_controller{
     
     public function index()
     {
-        
-        echo '<h1>welcome</h1>';
+        $this->display('index/welcome.html', []);
     }
     
     public function test($id)
