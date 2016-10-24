@@ -25,7 +25,7 @@ class lib_command_set_list implements lib_command_interface{
         foreach ($commands as $key => $val)
         {
             $obj = new $val;
-            logger::info('  '.$key.'                         '.$obj->commandTitle());
+            logger::info(str_repeat(' ', 2).str_pad($key, 30).$obj->commandTitle());
         }
         
         return true;
