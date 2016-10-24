@@ -154,35 +154,38 @@ class ClassLoader {
         
         list ( $appId ) = $fragments = explode ( '_', $className );
         
-        if (in_array ( $fragments [1], static::$_supportAppTypes )) {
-            $type = $fragments [1];
-            switch ($type) {
-                case 'ctl' :
-                case 'api' :
-                case 'middleware' :
-                case 'service':
-                    static::commonLoad ( $appId, $className, $type, implode ( '/', array_slice ( $fragments, 2 ) ) );
-                case 'mdl' :
-                    try {
-                        static::commonLoad ( $appId, $className, $type, implode ( '/', array_slice ( $fragments, 2 ) ) );
-                    } catch ( RuntimeException $e ) {
-                        $paths = [];
-                        $relativePath = sprintf ( '%s/%s/%s.php', $appId, config::get('database.app_dbtable_dir', 'dbtable'), implode ( '_', array_slice ( $fragments, 2 ) ) );
-                        $paths [] = APP_DIR . '/' . $relativePath;
-                        
-                        foreach ( $paths as $path ) {
-                            if (file_exists ( $path )) {
-                                $parent_model_class = app::get ( $appId )->getParentModelClass();
-                                eval ( "class {$className} extends {$parent_model_class}{ }" );
-                                return true;
-                            }
-                        }
-                        throw new RuntimeException ( 'Don\'t find model file "' . $className . '"' );
-                    }
-            }
-        } else {
+        // 加载框架核心类，composer自动加载冲突类也在libload中处理
+        if($appId == 'lib' || in_array($appId, static::$_loadConflict))
+        {
             static::libLoad($className);
+            return true;
         }
+        // 加载app下的类
+        $type = $fragments [1];
+        switch ($type) {
+            case 'mdl' :
+                try {
+                    static::commonLoad ( $appId, $className, $type, implode ( '/', array_slice ( $fragments, 2 ) ) );
+                } catch ( RuntimeException $e ) {
+                    $paths = [];
+                    $relativePath = sprintf ( '%s/%s/%s.php', $appId, config::get('database.app_dbtable_dir', 'dbtable'), implode ( '_', array_slice ( $fragments, 2 ) ) );
+                    $paths [] = APP_DIR . '/' . $relativePath;
+        
+                    foreach ( $paths as $path ) {
+                        if (file_exists ( $path )) {
+                            $parent_model_class = app::get ( $appId )->getParentModelClass();
+                            eval ( "class {$className} extends {$parent_model_class}{ }" );
+                            return true;
+                        }
+                    }
+                    throw new RuntimeException ( 'Don\'t find model file "' . $className . '"' );
+                }
+                
+                default:
+                    static::commonLoad ( $appId, $className, $type, implode ( '/', array_slice ( $fragments, 2 ) ) );
+        }
+        
+        return true;
     } // End Function
 }
 
