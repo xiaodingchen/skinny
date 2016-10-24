@@ -16,7 +16,7 @@ class ClassLoader {
     protected static $_aliases = array ();
     
     /**
-     * app支持的类类型.
+     * app支持的类类型.(已废弃)
      *
      * @var array
      */
