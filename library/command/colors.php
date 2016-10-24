@@ -89,7 +89,7 @@ class lib_command_colors {
                 $out = $this->getColoredString($text, 'yellow');
                 break;
             case "info":
-                $out = $this->getColoredString($text, 'blue');
+                $out = $this->getColoredString($text, 'light_blue');
                 break;
             default:
                 $out = $this->getColoredString($text, 'white');
