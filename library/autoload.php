@@ -47,6 +47,8 @@ class ClassLoader {
             'mdl' => 'model',
     ];
     
+    protected static $_loadConflict = ['Smarty'];
+    
     /**
      * Register the given class loader on the auto-loader stack.
      *
@@ -86,8 +88,7 @@ class ClassLoader {
     public static function commonLoad($appId, $className, $type, $classNamePath) {
         $typePath = static::$_supportAppTypesCorrDirectory [$type] ?: $type;
         $relativePath = sprintf ( '%s/%s/%s.php', $appId, $typePath, $classNamePath );
-        if (defined ( 'CUSTOM_CORE_DIR' ))
-            $paths [] = CUSTOM_CORE_DIR . '/' . $relativePath;
+        
         $paths [] = APP_DIR . '/' . $relativePath;
         
         foreach ( $paths as $path ) {
@@ -109,8 +110,9 @@ class ClassLoader {
     {
         $typePath = LIB_DIR;
         $tmpArr = explode('_', $className);
-        // 兼容smarty文件
-        if($tmpArr[0] == 'Smarty')
+        
+        // 解决composer自动加载冲突
+        if(in_array($tmpArr[0], self::$_loadConflict))
         {
             return false;
         }
