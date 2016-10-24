@@ -33,12 +33,12 @@ class lib_command_set_help implements lib_command_interface {
             }
             $title = $commandObj->commandTitle();
             $desc = $commandObj->commandExplain();
-            logger::info('  command tilte:    '.$title);
-            logger::info('  command explain:  '. $desc);
+            consoleColor::outputText(str_repeat(' ', 2).str_pad('command title', 30).$title, 'success');
+            consoleColor::outputText(str_repeat(' ', 2).str_pad('command title', 30).$desc, 'success');
         }
         else
         {
-            logger::info("Error: {$commandClassName}  must implement the lib_command_interface interface.");
+            consoleColor::outputText("Error: {$commandClassName}  must implement the lib_command_interface interface.", 'error');
             exit;
         }
     }

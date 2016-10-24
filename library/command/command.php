@@ -4,6 +4,7 @@
  *
  * 执行命令
  * */
+
 class lib_command_command{
     
     public function __construct()
@@ -86,7 +87,7 @@ class lib_command_command{
                 // 执行自定义的命令
                 $commandClassName = $this->checkCommand($command);
                 
-                logger::info('Scanning local Applications...');
+                consoleColor::outputText('Scanning local Applications...', 'info');
                 $commandObj = new $commandClassName();
                 if($commandObj instanceof lib_command_interface)
                 {
@@ -94,8 +95,8 @@ class lib_command_command{
                 }
                 else
                 {
-                    logger::info("Error: {$commandClassName}  must implement the lib_command_interface interface.");
                     
+                    consoleColor::outputText("Error: {$commandClassName}  must implement the lib_command_interface interface.", 'error');
                     exit;
                 }
                 
@@ -119,8 +120,7 @@ class lib_command_command{
         {
             return $commands[$command];
         }
-        
-        logger::info($command . ':Command not defined.');
+        consoleColor::outputText($command . ':Command not defined.', 'error');
         exit;
     }
     
@@ -166,6 +166,7 @@ class lib_command_command{
     
     public function print_welcome()
     {
-        echo "skinny shell (abort with ^C), Root: ",ROOT_DIR;
+        consoleColor::outputText("skinny shell (abort with ^C), Root: ",ROOT_DIR, 'waring');
+        
     }
 }

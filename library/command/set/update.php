@@ -32,7 +32,7 @@ class lib_command_set_update implements lib_command_interface{
             $table->update();
         }
         
-        logger::info('Applications database is up-to-date, ok.');
+        consoleColor::outputText('Applications database is up-to-date, ok.', 'success');
     }
     
     

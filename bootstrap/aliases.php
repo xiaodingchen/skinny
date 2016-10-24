@@ -14,4 +14,5 @@ return [
     'redis' => 'lib_facades_redis',
     'cache' => 'lib_facades_cache',
     'hash' => 'lib_facades_hash',
+    'consoleColor' => 'lib_facades_consoleColor',
 ];
