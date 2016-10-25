@@ -78,22 +78,31 @@ class lib_command_colors {
     public function outputText($text, $status)
     {
         $out = '';
-        switch($status) {
-            case "success":
-                $out = $this->getColoredString($text, 'green');
-                break;
-            case "error":
-                $out = $this->getColoredString($text, 'red');
-                break;
-            case "warning":
-                $out = $this->getColoredString($text, 'yellow');
-                break;
-            case "info":
-                $out = $this->getColoredString($text, 'light_blue');
-                break;
-            default:
-                $out = $this->getColoredString($text, 'white');
+        // 兼容windows平台
+        if(stristr(PHP_OS, 'WIN') === FALSE)
+        {
+            switch($status) {
+                case "success":
+                    $out = $this->getColoredString($text, 'green');
+                    break;
+                case "error":
+                    $out = $this->getColoredString($text, 'red');
+                    break;
+                case "warning":
+                    $out = $this->getColoredString($text, 'yellow');
+                    break;
+                case "info":
+                    $out = $this->getColoredString($text, 'light_blue');
+                    break;
+                default:
+                    $out = $this->getColoredString($text, 'white');
+            }
         }
+        else
+        {
+            $out = $text;
+        }
+        
         
         echo $out.PHP_EOL;
     }
