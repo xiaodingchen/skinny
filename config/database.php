@@ -22,7 +22,14 @@ return [
     ],
     
     'app_dbtable_dir' => 'dbtable',
-    'type_define' => [],
+    'type_define' => [
+        /* 'time'=>array(
+            'doctrineType' => ['integer', ['unsigned' => true]],
+        ),
+        'password'=>array(
+            'doctrineType' => ['string', ['length' => 32]],
+        ), */
+    ],
 
     
 ];

@@ -15,4 +15,5 @@ return [
     'cache' => 'lib_facades_cache',
     'hash' => 'lib_facades_hash',
     'consoleColor' => 'lib_facades_consoleColor',
+    'model' => 'lib_static_model',
 ];

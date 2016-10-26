@@ -6,6 +6,7 @@
  */
 
 return array(
+    // 表字段
     'columns' => array(
         'user_id' => array(
             'type' => 'integer',
@@ -55,7 +56,9 @@ return array(
         )
     ),
     
+    // 主键
     'primary' => 'user_id',
+    // 普通索引
     'index' => array(
         'ind_regtime' => [
             'columns' => [
@@ -64,5 +67,6 @@ return array(
         ]
     ),
     
+    // 数据表注释
     'comment' => '会员表'
 );
