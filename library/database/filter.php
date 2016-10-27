@@ -11,10 +11,10 @@ class lib_database_filter
     {
         if (!is_array($filter)) return $filter;
 
-        $tPre = ('`'.$object->table_name(true).'`').'.';
+        $tPre = ('`'.$object->getTableName(true).'`').'.';
 
         $where = [1];
-        // 因为searchOptions 会员非 dbschme定义的字段
+        
 
         $qb = $object->database()->createQueryBuilder();
 

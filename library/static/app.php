@@ -55,11 +55,6 @@ class lib_static_app {
         return self::$__instance[$app_id];
     }
 
-    
-    public function controller($controller)
-    {
-        return kernel::single($this->app_id . '_ctl_' . $controller, $this);
-    }
 
     public function model($model)
     {

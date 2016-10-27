@@ -227,6 +227,32 @@ class lib_lib_model {
     
             return isset($insertId) ? $insertId : true;
     }
+
+    /**
+     * 插入多条数据
+     *
+     * @var array $data
+     @ @return integer|bool
+     */
+    public function insertMultiData($data)
+    {
+        $columns = $this->_columns();
+
+        foreach ($$data as $value) {
+            $this->checkInsertData($value, $columns);
+        }
+
+        $tableName = $this->getTableName(1);
+        $conn = $this->database();
+
+        foreach ($data as $val) {
+            $conn->insert($tableName, $val);
+        }
+
+        $insertId = $this->database()->lastInsertId();
+        
+        return isset($insertId) ? $insertId : true;
+    }
     
     /**
      * delete
@@ -327,9 +353,14 @@ class lib_lib_model {
      * @param integer|null $data
      * @param integer|null
      */
-    public function checkInsertData($data)
+    public function checkInsertData($data, $columns = [])
     {
-        foreach($this->_columns() as $columnName => $columnDefine)
+        if(! $columns)
+        {
+            $columns = $this->_columns();
+        }
+        
+        foreach($columns as $columnName => $columnDefine)
         {
             if(!isset($columnDefine['default']) && $columnDefine['required'] && $columnDefine['autoincrement']!=true)
             {
