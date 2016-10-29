@@ -16,4 +16,5 @@ return [
     'hash' => 'lib_facades_hash',
     'consoleColor' => 'lib_facades_consoleColor',
     'model' => 'lib_static_model',
+    'validator' => 'lib_facades_validator',
 ];

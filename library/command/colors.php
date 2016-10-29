@@ -75,7 +75,7 @@ class lib_command_colors {
         return array_keys($this->background_colors);
     }
 
-    public function outputText($text, $status)
+    public function outputText($text, $status='')
     {
         $out = '';
         // 兼容windows平台

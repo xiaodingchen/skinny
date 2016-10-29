@@ -33,8 +33,10 @@ class lib_command_set_help implements lib_command_interface {
             }
             $title = $commandObj->commandTitle();
             $desc = $commandObj->commandExplain();
-            consoleColor::outputText(str_repeat(' ', 2).str_pad('command title', 30).$title, 'success');
-            consoleColor::outputText(str_repeat(' ', 2).str_pad('command title', 30).$desc, 'success');
+            consoleColor::outputText(str_repeat(' ', 2).'Command title:');
+            consoleColor::outputText(str_repeat(' ', 2).$title, 'success');
+            consoleColor::outputText(str_repeat(' ', 2).'Command explain:');
+            consoleColor::outputText(str_repeat(' ', 2).$desc, 'success');
         }
         else
         {
