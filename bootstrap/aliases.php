@@ -17,4 +17,5 @@ return [
     'consoleColor' => 'lib_facades_consoleColor',
     'model' => 'lib_static_model',
     'validator' => 'lib_facades_validator',
+    'specialutils' => 'lib_static_specialutils',
 ];
