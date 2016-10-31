@@ -32,7 +32,7 @@ class lib_redis_client {
 
     public function scene($name = null)
     {
-        if (isset($this->sceneClients[$name])) return $this->sceneClients[$name];
+        if (isset($this->sceneClients[$name])) return $this;
     
         if (is_null($connName = config::get('redis.scenes.'.$name.'.connection', null)))
         {
@@ -43,10 +43,11 @@ class lib_redis_client {
         {
             $name = $connName;
         }
+        $this->sceneClient($name, $this->connection($connName));
+
+        $this->sceneClients[$name] = $this->client;
     
-        $this->sceneClients[$name] = new $this->sceneClient($name, $this->connection($connName));
-    
-        return $this->sceneClients[$name];
+        return $this;
     }
     
     public function sceneClient($name, $client)
