@@ -264,7 +264,7 @@ class lib_lib_model {
     public function delete($filter)
     {
         $qb = $this->database()->createQueryBuilder();
-        $qb->delete($this->database()->quoteIdentifier($this->getTableDefine(1)))
+        $qb->delete($this->database()->quoteIdentifier($this->getTableName(1)))
         ->where($this->_filter($filter));
     
         return $qb->execute() ? true : false;
