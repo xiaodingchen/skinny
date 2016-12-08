@@ -435,7 +435,7 @@ class lib_lib_model {
         if ($filter == null) $filter = array();
     
         $filterObj = kernel::single('lib_database_filter');
-        $filterResult = $dbeav_filter->filterParser($filter,$this);
+        $filterResult = $filterObj->filterParser($filter,$this);
         return $filterResult;
     }
 }
