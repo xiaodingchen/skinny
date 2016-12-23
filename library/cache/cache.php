@@ -34,7 +34,7 @@ class lib_cache_cache{
             return $this->createNullDriver();
         }
         
-        $config = config::get('cache.drivers' . $name, []);
+        $config = config::get('cache.drivers.' . $name, []);
         
         if(! $config && !in_array($name, 'apc', 'file'))
         {
