@@ -36,7 +36,7 @@ class lib_cache_cache{
         
         $config = config::get('cache.drivers.' . $name, []);
         
-        if(! $config && !in_array($name, 'apc', 'file'))
+        if(! $config && !in_array($name,['apc', 'file']))
         {
             throw new RuntimeException($name.' cache store configure not found.');
         }
