@@ -6,6 +6,8 @@
 class lib_static_app {
 
     private static $__instance = array();
+    public $app_id;
+    public $app_dir;
 
     public function __construct($app_id = null)
     {

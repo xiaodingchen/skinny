@@ -27,8 +27,7 @@ class lib_command_set_update implements lib_command_interface{
         foreach ($appList as $appName)
         {
             $app = app::get($appName);
-            
-            $table = kernel::single('lib_database_dbtable_table', $app);
+            $table = new lib_database_dbtable_table($app);
             $table->update();
         }
         

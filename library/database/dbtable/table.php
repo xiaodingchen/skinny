@@ -118,6 +118,11 @@ class lib_database_dbtable_table {
                 }
             }
         }
+
+        if($define['comment'])
+        {
+            $table->addOption('comment', $define['comment']);
+        }
         
         return $schema;
     }
@@ -189,7 +194,9 @@ class lib_database_dbtable_table {
         $tmpDir = '';
         if(is_dir($this->app->app_dir . '/' . $this->tableDirName))
         {
+
             $tmpDir = $this->app->app_dir . '/' . $this->tableDirName;
+
             $coreDir = new DirectoryIterator($tmpDir);
             
             return $coreDir;
