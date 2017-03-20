@@ -79,7 +79,7 @@ class lib_command_colors {
     {
         $out = '';
         // 兼容windows平台
-        if(stristr(PHP_OS, 'WIN') === FALSE)
+        if(stristr(PHP_OS, 'windows') === FALSE)
         {
             switch($status) {
                 case "success":

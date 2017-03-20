@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+
+i,em{font-style: normal;}
+/**背景色*/
+.bg-black{background-color:#222;color:#fff}
+.bg-white{background-color:#fff}
+.bg-water{background-color: #EDF0F1}
+
+/***/
+.top-margin-10{margin-top: 10px}
+.top-margin-20{margin-top:20px}
+.top-margin-30{margin-top:30px}
+.margin-left-5{margin-left: 5px}
+.margin-right-5{margin-right: 5px}
+
+/**显示色*/
+.color-black{color:#000}
+.color-white{color:#fff}
+.color-white:hover{color:#fff}
+/**边框*/
+
+.border-black{boder:#000 1px solid}
+
+.border-radius-none {border-radius:0px }
+
+.text-white{color: white;}
+.input-upload{display: none;}
+.message {
+    position: fixed;
+    top: 0;
+    padding-left: 15px;
+    margin: auto;
+    z-index: 1090;
+}
+.alert-error {
+    color: #E06754;
+    background-color: #f4cbc4;
+    border-color: #f0b4aa;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    
+}
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+}
+

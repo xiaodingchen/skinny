@@ -8,7 +8,7 @@ define('CACHE_DIR', DATA_DIR . '/cache');
 define('CACHE_ROUTE_DIR', ROOT_DIR . '/data');
 define('PUBLIC_DIR', ROOT_DIR . '/public'); // 同一主机共享文件
 
-define('MEDIA_DIR', PUBLIC_DIR . '/images');
+define('STATIC_DIR', PUBLIC_DIR . '/static');
 define('SCRIPT_DIR', ROOT_DIR . '/script');
 define('APP_DIR', ROOT_DIR . '/app');
 define('CONFIG_DIR', ROOT_DIR . '/config');

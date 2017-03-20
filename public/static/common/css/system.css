@@ -1,0 +1,48 @@
+@CHARSET "UTF-8";
+.text-white{color: white;}
+ul,li,ol{list-style: none;}
+.font-size-1{font-size: 1rem;}
+.font-size-2{font-size: 2rem;}
+.system-navbar-text{color: white;}
+.system-navbar-text a{color: #ccc;}
+.system-navbar-text a:hover{color: black;}
+.system-navbar-text  a.navbar-brand {color: white;}
+.navbar{margin-bottom: 0px}
+.system-menu-ul .active{background: #ccc}
+.system-menu-ul .active a{ color: black;}
+.system-menu-ul i{font-size: 12px;padding: 0 5px}
+.system-left-app{padding: 20px 0 20px 0;width: 100%;border-bottom:1px solid #dfe4e6; }
+.system-left-app .now{background-color: white; }
+.system-left-app li{border-top:1px solid #dfe4e6; }
+.system-left-app li a{color: gray; text-decoration: none; display: block;  padding: 10px 0px 10px 20px; font-size: 14px;}
+.system-left-app li a i{padding-right: 2px; font-size: 12px;}
+.system-left-app .now a{color: black;}
+.system-left-app li a:hover{color: #000}
+.system-app-header-notice{font-size: 16px}
+.system-app-header-right i{padding-right: 5px}
+.system-app-menu li{margin: 2px;}
+.system-app-menu a{padding-top: 0px;}
+.system-app-menu a.btn{padding: 5px;}
+.system-app-menu li.submenu{ margin: 0px; padding: 0px;}
+.system-app-search input{}
+.system-app-list table td {text-align: center; font-size: 12px;vertical-align: middle;}
+.system-app-list table tfoot td{text-align: left; }
+.system-app-list table tfoot .text-right{ text-align: right;}
+.system-login-form-box{margin: 10% auto; width: 500px;vertical-align:middle; }
+.system-form .label-left{text-align: left;}
+.system-form .text-area{resize:none;}
+.system-form .form-start{color: red; padding: 2px}
+.uploader_box{position: relative;}
+.fileinput-button input {margin: 0; padding: 0;position: absolute;top: 0;left: 0;opacity: 0;cursor: pointer;}
+.uploader_box .showatt{position: relative;}
+.uploader_box .showatt img{max-width:64px;max-height: 32px;margin: 2px; padding: 2px; border:1px solid #ccc; }
+
+.tab-sign{margin-left: 15px;background-position: -55px 0;width: 40px;display: inline-block!important;height: 21px; vertical-align: middle;background-image: url(../image/tab_sign.png);background-repeat: no-repeat;}
+.table-boder-none{margin-bottom: 0px;}
+.table-boder-none>tbody>tr>td{border: none;}
+
+.system-app-list .pagination{margin: 0;}
+.system-app-list .page-number {
+  float: right;
+  margin: 10px 10px 0 10px;
+}
